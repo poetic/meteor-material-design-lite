@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'poetic:mdl',
+  name: 'poetic:material-design-lite',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -10,13 +10,25 @@ Package.describe({
   documentation: 'README.md'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.2');
-  api.addFiles('mdl.js');
+Npm.depends({
+  'material-design-lite': '1.0.0-3',
+  'material-design-icons': '2.0.0'
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('poetic:mdl');
-  api.addFiles('mdl-tests.js');
+Package.onUse(function(api) {
+  api.versionsFrom('1.1.0.2');
+
+  var mdlDir = '.npm/package/node_modules/material-design-lite/';
+  api.addFiles(mdlDir + 'material.min.css', 'client');
+  api.addFiles(mdlDir + 'material.min.js', 'client');
+
+  var mdiDir = '.npm/package/node_modules/material-design-icons/iconfont/';
+  api.addFiles([
+    mdiDir + 'MaterialIcons-Regular.eot',
+    mdiDir + 'MaterialIcons-Regular.ttf',
+    mdiDir + 'MaterialIcons-Regular.woff',
+    mdiDir + 'MaterialIcons-Regular.woff2'
+  ], 'client');
+
+  api.addFiles('material-design-icons.css', 'client');
 });
