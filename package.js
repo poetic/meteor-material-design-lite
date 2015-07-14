@@ -2,9 +2,9 @@ Package.describe({
   name: 'poetic:material-design-lite',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Material design lite for meteor with local icon fonts',
   // URL to the Git repository containing the source code for this package.
-  git: '',
+  git: 'https://github.com/poetic/meteor-material-design-lite.git',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
